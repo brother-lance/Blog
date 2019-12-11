@@ -1,0 +1,21 @@
+#folder
+target/
+web/src/main/webapp/node_modules
+#fixed file
+.class
+.exe
+.log
+.prefs
+.project
+.classpath
+.metadata
+.settings
+.DS_Store
+Thumbs.db
+.project
+*.iml
+*.ipr
+*.iws
+*.tar.gz
+.idea
+
