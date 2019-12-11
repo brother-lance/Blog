@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.lw.base.exceptions.BaseException;
+import org.lw.base.exceptions.ErrorCode;
 
 /**
  * 描述：公共返回对像Vo
@@ -22,7 +23,7 @@ import org.lw.base.exceptions.BaseException;
 public class ResultRespVO<T> {
 
     public ResultRespVO() {
-        this.status = "200";
+        this.status = "0000";
         this.message = "交易成功";
     }
 
@@ -68,6 +69,12 @@ public class ResultRespVO<T> {
         this.total = 0;
         this.status = e.getErrorCode().getErrorCode();
         this.message = e.getMessage();
+    }
+
+    public void error(ErrorCode e) {
+        this.total = 0;
+        this.status = e.getErrorCode();
+        this.message = e.getErrorDesc();
     }
 
 

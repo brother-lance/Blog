@@ -15,6 +15,9 @@ import lombok.Getter;
 public enum BaseErrorCode implements ErrorCode {
 
     SUCCESS("0000", "成功"),
+    SYSTEM_ERROR("SYSTEM_ERROR", "系统异常"),
+    PARAMETER_INVALID("PARAMETER_INVALID", "参数校验不通过"),
+
 
     ;
 

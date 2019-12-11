@@ -2,9 +2,18 @@ package org.lw.base.api;
 
 import java.util.List;
 
+import org.lw.base.exceptions.BaseErrorCode;
+import org.lw.base.exceptions.BaseException;
+import org.lw.base.mapper.SubjectInfoMapper;
+import org.lw.base.model.SubjectInfo;
+import org.lw.base.utils.BeanCopyUtil;
+import org.lw.base.utils.VerifyHelper;
 import org.lw.base.vo.ResultRespVO;
-import org.lw.base.vo.SubjectVO;
+import org.lw.base.vo.SubjectInfoVO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
 
 /**
  * 项目名称：Blog
@@ -17,15 +26,20 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/v1/subject")
 public class SubjectAPI {
 
+
+    @Resource
+    private SubjectInfoMapper subjectInfoMapper;
+
     /**
      * 查询
+     *
      * @param subjectVO 查询参数
      * @return 返回列表
      */
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public Object list(SubjectVO subjectVO) {
+    public Object list(SubjectInfoVO subjectVO) {
 
-        ResultRespVO<List<SubjectVO>> resp = new ResultRespVO<>();
+        ResultRespVO<List<SubjectInfoVO>> resp = new ResultRespVO<>();
 
 
         return resp;
@@ -38,10 +52,31 @@ public class SubjectAPI {
      * @return 返回
      */
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public Object add(@RequestBody SubjectVO subjectVO) {
+    public Object add(@RequestBody SubjectInfoVO subjectVO) {
 
-        ResultRespVO<SubjectVO> resp = new ResultRespVO<>();
+        ResultRespVO<SubjectInfoVO> resp = new ResultRespVO<>();
 
+        try {
+
+            VerifyHelper.validateObject(subjectVO);
+
+            // 判断名称是否重复
+
+            // 添加数据库
+            SubjectInfo subjectInfo = BeanCopyUtil.objConvert(subjectVO, SubjectInfo.class);
+            subjectInfoMapper.insert(subjectInfo);
+            subjectVO=BeanCopyUtil.objConvert(subjectInfo, SubjectInfoVO.class);
+            resp.setResult(subjectVO);
+
+        } catch (BaseException e) {
+
+            resp.error(e);
+
+        } catch (Throwable e) {
+
+            resp.error(BaseErrorCode.SYSTEM_ERROR);
+
+        }
 
         return resp;
     }
@@ -53,16 +88,20 @@ public class SubjectAPI {
      * @return 返回
      */
     @RequestMapping(value = "", method = RequestMethod.PUT)
-    public Object update(SubjectVO subjectVO) {
+    public Object update(@RequestBody SubjectInfoVO subjectVO) {
 
         ResultRespVO<Boolean> resp = new ResultRespVO<>();
 
+        // 判断对像是否存在
+
+        // 修改数据库
 
         return resp;
     }
 
     /**
      * 删除
+     *
      * @param id 删除编号
      */
     @RequestMapping(value = "{id}", method = RequestMethod.DELETE)
@@ -70,6 +109,9 @@ public class SubjectAPI {
 
         ResultRespVO<Boolean> resp = new ResultRespVO<>();
 
+        // 判断对像是否存在
+
+        // 删除数据库
 
         return resp;
     }
@@ -83,7 +125,7 @@ public class SubjectAPI {
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
     public Object get(@PathVariable("id") long id) {
 
-        ResultRespVO<SubjectVO> resp = new ResultRespVO<>();
+        ResultRespVO<SubjectInfoVO> resp = new ResultRespVO<>();
 
 
         return resp;

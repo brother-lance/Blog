@@ -18,11 +18,11 @@ import java.util.Date;
 @ToString
 public class SubjectInfoVO extends ResultPageReqVO {
 
-    private Long id;
+    private long id;
 
     private String name;
 
-    private Long parentId;
+    private long parentId;
 
     private String desc;
 
