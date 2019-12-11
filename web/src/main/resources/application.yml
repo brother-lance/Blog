@@ -1,0 +1,17 @@
+server:
+  port: 8080
+  session:
+    timeout: 1800000
+
+
+--- ## mysql
+
+spring:
+  application:
+    name: blog
+  datasource:
+    name: blog
+    url: jdbc:mysql://112.51.112.69:3306/blog
+    username: root
+    password: 12345678
+    driver-class-name: com.mysql.jdbc.Driver
