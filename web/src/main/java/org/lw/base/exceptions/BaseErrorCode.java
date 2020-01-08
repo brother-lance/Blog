@@ -12,7 +12,7 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor
-public enum BaseErrorCode implements ErrorCode {
+public enum BaseErrorCode implements org.lw.base.exceptions.ErrorCode {
 
     SUCCESS("0000", "成功"),
     SYSTEM_ERROR("SYSTEM_ERROR", "系统异常"),

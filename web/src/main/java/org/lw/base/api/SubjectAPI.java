@@ -10,7 +10,6 @@ import org.lw.base.utils.BeanCopyUtil;
 import org.lw.base.utils.VerifyHelper;
 import org.lw.base.vo.ResultRespVO;
 import org.lw.base.vo.SubjectInfoVO;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
