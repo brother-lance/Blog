@@ -36,7 +36,7 @@
         <oval.version>1.85</oval.version>
         <dozer.version>5.5.1</dozer.version>
         <joda.time.version>2.9.1</joda.time.version>
-        <fastjson.version>1.2.29</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <version.commons>5.0.6</version.commons>
         <commons-lang3.version>3.4</commons-lang3.version>
         <commons.dbcp.version>1.4</commons.dbcp.version>
