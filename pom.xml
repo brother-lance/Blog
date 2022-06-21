@@ -32,7 +32,7 @@
 
         <!-- 依赖项目 -->
         <lombok.version>1.16.6</lombok.version>
-        <mysql.version>5.1.38</mysql.version>
+        <mysql.version>8.0.28</mysql.version>
         <oval.version>1.85</oval.version>
         <dozer.version>5.5.1</dozer.version>
         <joda.time.version>2.9.1</joda.time.version>
